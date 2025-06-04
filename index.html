@@ -273,12 +273,18 @@
     if (input === correctPassword) {
       document.getElementById("lockscreen").style.display = "none";
       document.getElementById("content").style.display = "block";
-      document.body.style.overflow = "auto"; // ✅ Enable scrolling when unlocked
+      document.body.style.overflow = "auto";
+
+      // 🌀 Force marquee to restart animation
+      const marquee = document.querySelector('.marquee');
+      const clone = marquee.cloneNode(true);
+      marquee.parentNode.replaceChild(clone, marquee);
     } else {
       document.getElementById("error").innerText = "❌ Incorrect password. Try again.";
     }
   }
 </script>
+
 
 
 </body>
