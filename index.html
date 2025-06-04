@@ -7,42 +7,46 @@
   <style>
     body {
       margin: 0;
-      padding: 20px;
+      padding: 0;
       font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(135deg, #ffccff, #ccffff, #e6e6ff);
-      background-size: 600% 600%;
-      animation: gradientShift 15s ease infinite;
-      color: #111;
-      cursor: url('https://cur.cursors-4u.net/cursors/cur-2/cur117.cur'), auto;
-    }
-
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+      color: #000;
+      background: url('https://www.transparenttextures.com/patterns/80s-waves.png'), #ffe600;
+      background-repeat: repeat;
+      background-size: auto;
+      cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym824.cur'), auto;
     }
 
     h1 {
       text-align: center;
-      font-size: 20px;
-      color: #ff00cc;
-      text-shadow: 0 0 5px #ff99ff, 0 0 10px #ff00cc;
-      margin-bottom: 40px;
+      font-size: 16px;
+      padding: 20px;
+      background: linear-gradient(90deg, #ff00cc, #00ffcc, #ff6600);
+      color: #fff;
+      text-shadow: 2px 2px 0 #000;
+      animation: flicker 2s infinite;
+      border-bottom: 6px double #000;
+    }
+
+    @keyframes flicker {
+      0% {opacity: 1;}
+      50% {opacity: 0.8;}
+      100% {opacity: 1;}
     }
 
     .video-section {
-      background: rgba(255, 255, 255, 0.85);
-      border: 2px dashed #ff00cc;
-      border-radius: 12px;
+      background: #ffffff;
+      border: 5px dashed #00ffcc;
       margin: 40px auto;
       padding: 20px;
       max-width: 900px;
-      box-shadow: 0 0 12px #ff00cc88;
-      transition: transform 0.3s ease;
+      box-shadow: 0 0 20px #ff6600aa;
+      position: relative;
+      animation: bounce 5s ease-in-out infinite;
     }
 
-    .video-section:hover {
-      transform: scale(1.01);
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-3px);}
     }
 
     .video-container {
@@ -55,16 +59,16 @@
 
     .thumbnail {
       width: 220px;
-      height: 130px;
+      height: 140px;
       object-fit: cover;
-      border-radius: 6px;
-      border: 2px solid #00ffff;
-      box-shadow: 0 0 10px #00ffff99;
+      border: 4px groove lime;
+      box-shadow: 0 0 12px #000;
+      filter: contrast(120%);
       transition: transform 0.2s ease;
     }
 
     .thumbnail:hover {
-      transform: scale(1.05);
+      transform: rotate(-2deg) scale(1.05);
     }
 
     .info {
@@ -73,25 +77,41 @@
     }
 
     .info h3 {
-      font-size: 14px;
-      color: #0033cc;
-      text-shadow: 1px 1px 0 #fff;
+      font-size: 12px;
+      color: #ff3300;
+      background: #00ffcc;
+      padding: 4px;
+      border-left: 5px solid #000;
+      text-shadow: 1px 1px #000;
     }
 
     .info p {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #333;
+      font-size: 10px;
+      line-height: 1.5;
+      background: #f4f4f4;
+      padding: 5px;
+      border-left: 3px dotted #ff00cc;
+      color: #111;
     }
 
     video {
       width: 100%;
       margin-top: 10px;
-      border-radius: 6px;
-      box-shadow: 0 0 8px #00000055;
+      border: 3px solid #ff00cc;
+      box-shadow: 0 0 12px #ff00ccaa;
+      border-radius: 4px;
     }
 
-    /* Responsive tweaks */
+    /* Extras */
+    .marquee {
+      font-size: 12px;
+      color: #fff;
+      background: #000;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
     @media (max-width: 700px) {
       .video-container {
         flex-direction: column;
@@ -106,8 +126,13 @@
 </head>
 <body>
 
-  <h1>💿 FDTV: Online Viewing Room 💻</h1>
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="8">
+      📺 FDTV 📺 online viewing room 📺
+    </marquee>
+  </div>
 
+  <h1>we don't own the rights to any of these films</h1>
   <!-- Video 1 -->
   <div class="video-section">
     <div class="video-container">
