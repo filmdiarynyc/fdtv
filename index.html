@@ -16,6 +16,50 @@
       cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym824.cur'), auto;
     }
 
+    /* 🔐 Password lock screen */
+    #lockscreen {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: #000;
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lockscreen input {
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Press Start 2P', cursive;
+      margin-top: 10px;
+      border: 2px dashed #00ffcc;
+      background: black;
+      color: #00ffcc;
+    }
+
+    #lockscreen button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-family: 'Press Start 2P', cursive;
+      background: #00ffcc;
+      border: 2px solid #000;
+      cursor: pointer;
+    }
+
+    #lockscreen p#error {
+      margin-top: 10px;
+      color: red;
+    }
+
+    #content {
+      display: none;
+    }
+
     h1 {
       text-align: center;
       font-size: 16px;
@@ -102,7 +146,6 @@
       border-radius: 4px;
     }
 
-    /* Extras */
     .marquee {
       font-size: 12px;
       color: #fff;
@@ -126,13 +169,26 @@
 </head>
 <body>
 
+<!-- 🔐 Lock Screen -->
+<div id="lockscreen">
+  <h2>🔒 FDTV Access</h2>
+  <p>Enter password to continue</p>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="checkPassword()">Enter</button>
+  <p id="error"></p>
+</div>
+
+<!-- 🔓 Hidden Content -->
+<div id="content">
+
   <div class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="8">
-     all links sourced from films already publically available on internet archive and ubu. we do not own the rights. please contact filmdiarynyc@gmail.com to have a film removed.
+      all links sourced from films already publicly available on Internet Archive and Ubu. we do not own the rights. contact filmdiarynyc@gmail.com to remove content.
     </marquee>
   </div>
 
   <h1>FDTV: online viewing room</h1>
+
   <!-- Video 1 -->
   <div class="video-section">
     <div class="video-container">
@@ -207,6 +263,21 @@
       </div>
     </div>
   </div>
+
+</div>
+
+<script>
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const correctPassword = "blackoutlikestv";
+    if (input === correctPassword) {
+      document.getElementById("lockscreen").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.getElementById("error").innerText = "❌ Incorrect password. Try again.";
+    }
+  }
+</script>
 
 </body>
 </html>
